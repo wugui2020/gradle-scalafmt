@@ -15,8 +15,8 @@ plugins {
     id 'net.researchgate.release' version '2.6.0'
 }
 
-group 'cz.alenkacz'
-version = version == 'unspecified' ? 'DEVELOPER-SNAPSHOT' : version
+group 'wlu'
+version '0.2'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
@@ -61,12 +61,12 @@ bintray {
     publish = true
     pkg {
         repo = 'maven'
-        name = 'gradle-scalafmt'
-        desc = 'Gradle plugin that can run scalafmt as a part of your build.'
+        name = 'gradle-scalafmt-cached'
+        desc = 'Gradle plugin that can run scalafmt as a part of your build with caches.'
         licenses = ['MIT']
-        vcsUrl = 'https://github.com/alenkacz/gradle-scalafmt.git'
-        websiteUrl = 'https://github.com/alenkacz/gradle-scalafmt'
-        issueTrackerUrl = 'https://github.com/alenkacz/gradle-scalafmt/issues'
+        vcsUrl = 'https://github.com/wugui2020/gradle-scalafmt'
+        websiteUrl = 'https://github.com/wugui2020/gradle-scalafmt'
+        issueTrackerUrl = 'https://github.com/wugui2020/gradle-scalafmt/issues'
         labels = ['scala', 'scalafmt', 'formatting']
         version {
             name = project.version
@@ -75,18 +75,16 @@ bintray {
     }
 }
 
-project.ext.set('gradle.publish.key', System.getenv('GRADLE_PORTAL_KEY'))
-project.ext.set('gradle.publish.secret', System.getenv('GRADLE_PORTAL_SECRET'))
 pluginBundle {
-    website = 'https://github.com/alenkacz/gradle-scalafmt'
-    vcsUrl = 'https://github.com/alenkacz/gradle-scalafmt'
-    description = 'Gradle plugin that can run scalafmt as a part of your build.'
+    website = 'https://github.com/wugui2020/gradle-scalafmt'
+    vcsUrl = 'https://github.com/wugui2020/gradle-scalafmt'
+    description = 'Gradle plugin that can run scalafmt as a part of your build with cache support to make it faster.'
     tags = ['scalafmt', 'scala', "formatting"]
 
     plugins {
         scalafmtPlugin {
-            id = 'cz.alenkacz.gradle.scalafmt'
-            displayName = 'Gradle Scalafmt plugin'
+            id = 'cn.wlu.gradle.scalafmt'
+            displayName = 'Gradle Cached Scalafmt plugin'
         }
     }
 }
